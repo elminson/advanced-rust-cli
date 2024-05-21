@@ -10,6 +10,9 @@ struct Opts {
     #[clap(short, long, env = "BLKRS_DEBUG")]
     debug: bool,
 
+    #[clap(short, long, env = "ENABLE_LOGGING")]
+    enable_logging: bool,
+
     #[clap(subcommand)]
     cmd: Command,
 }
@@ -32,6 +35,10 @@ fn main() {
     // Example usage of the global flags
     if opts.debug {
         println!("Debug mode enabled");
+    }
+
+    if opts.enable_logging {
+        println!("enable_logging mode enabled");
     }
 
     match opts.cmd {
